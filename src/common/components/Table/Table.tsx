@@ -86,7 +86,6 @@ const CustomTable = ({ data }: TableData): JSX.Element => {
                         start.driver.lastName}
                     </RaceHorse>
                     <Tab
-                      //className="tab"
                       isActive={activeTab === race.id + '_' + i.toString()}
                       role="contentinfo"
                       id={race.id + '_' + i.toString()}
