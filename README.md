@@ -20,13 +20,13 @@ To run the application locally, follow the steps below:
 
 The project uses ESLint and prettier
 
-### `npx prettier --write .`
+`npx prettier --write .`
 
 This command formats all files supported by Prettier in the current directory and its subdirectories.
 
 It’s recommended to always make sure that prettier --write . only formats what you want in your project. Use the .prettierignore file to ignore things that should not be formatted.
 
-### `ESLint`
+`ESLint`
 
 To specify configuration information for an entire directory and all of its subdirectories you can setup ESLint rules in the eslintrc.json file.
 
@@ -69,7 +69,7 @@ This test was created to ensure that we get the correct value from the options w
 
 In the project directory, you can run:
 
-### `npm start`
+`npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -77,12 +77,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+`npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+`npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -92,7 +92,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+`npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
