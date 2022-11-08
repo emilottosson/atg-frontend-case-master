@@ -8,12 +8,13 @@ import {
 } from '../../../../types/horseBetting/HorseBettingInfo';
 import { Wrapper, Select, Tracks } from './HorseBetting.styles';
 
+const dropDownOptions: DropDownOption[] = [
+  { label: 'V75', value: 'V75' },
+  { label: 'V86', value: 'V86' },
+  { label: 'GS75', value: 'GS75' },
+];
+
 const HorseBetting = () => {
-  const dropDownOptions: DropDownOption[] = [
-    { label: 'V75', value: 'V75' },
-    { label: 'V86', value: 'V86' },
-    { label: 'GS75', value: 'GS75' },
-  ];
   const [products, setProduct] = useState<Products>();
   const [betType, setBetType] = useState<string>();
 
