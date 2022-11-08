@@ -8,7 +8,7 @@ export default function HomePage() {
       <Subtitle>
         Sidan kommer visa de senaste resultaten för vald insatstyp
       </Subtitle>
-      <HorseBetting></HorseBetting>
+      <HorseBetting />
     </Wrapper>
   );
 }

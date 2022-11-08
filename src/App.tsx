@@ -4,7 +4,7 @@ import HomePage from './pages/home';
 function App() {
   return (
     <AppContainer>
-      <HomePage></HomePage>
+      <HomePage />
     </AppContainer>
   );
 }

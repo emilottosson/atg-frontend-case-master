@@ -8,3 +8,8 @@ export type Result = {
     startTime: string;
     tracks: [];
   };
+
+export type DropDownOption = { 
+    label: string; 
+    value: string 
+  };

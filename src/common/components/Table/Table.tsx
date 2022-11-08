@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { gameApi } from '../../../api/Api';
 import {
   TableData,
@@ -48,67 +48,67 @@ const CustomTable = ({ data }: TableData): JSX.Element => {
   }, [data]);
 
   return (
-    <Fragment>
-      <Track>
-        <TrackName>
-          {data.tracks.map((track: TrackProps, i) => {
-            return (
-              <p role="paragraph" key={i}>
-                {track.name}
-              </p>
-            );
-          })}
-          <p>- {trackStartTime}</p>
-        </TrackName>
-        {game?.races.map((race: Race, i) => {
-          const raceStartTime = new Date(race.startTime).toLocaleTimeString();
-          const raceName = race.name ? race.name : 'Namn saknas';
+    <Track>
+      <TrackName>
+        {data.tracks.map((track: TrackProps) => {
           return (
-            <RaceContainer key={i}>
-              <RaceName>
-                {race.number + ' - "' + raceName + '" - ' + raceStartTime}
-              </RaceName>
-              {race.starts.map((start: Start, i) => {
-                return (
-                  <RaceInformation key={i}>
-                    <RaceHorse
-                      role="button"
-                      onClick={(e) => {
-                        openTab(race.id + '_' + i.toString());
-                      }}
-                    >
-                      {start.number +
-                        ' ' +
-                        start.horse.name +
-                        ' - ' +
-                        start.driver.firstName +
-                        ' ' +
-                        start.driver.lastName}
-                    </RaceHorse>
-                    <Tab
-                      isActive={activeTab === race.id + '_' + i.toString()}
-                      role="contentinfo"
-                      id={race.id + '_' + i.toString()}
-                      onClick={(e) => {
-                        openTab(race.id + '_' + i.toString());
-                      }}
-                    >
-                      <p>
-                        Tränare:{' '}
-                        {start.horse.trainer.firstName +
-                          ' ' +
-                          start.horse.trainer.lastName}
-                      </p>
-                      <p>Far: {start.horse.pedigree.father.name}</p>
-                    </Tab>
-                  </RaceInformation>
-                );
-              })}
-            </RaceContainer>
+            <p role="paragraph" key={track.id}>
+              {track.name}
+            </p>
           );
         })}
-      </Track>
-    </Fragment>
+        <p>- {trackStartTime}</p>
+      </TrackName>
+      {game?.races.map((race: Race) => {
+        const raceStartTime = new Date(race.startTime).toLocaleTimeString();
+        const raceName = race.name ? race.name : 'Namn saknas';
+        return (
+          <RaceContainer key={race.id}>
+            <RaceName>
+              {race.number + ' - "' + raceName + '" - ' + raceStartTime}
+            </RaceName>
+            {race.starts.map((start: Start, i) => {
+              const horseInformation =
+                start.number +
+                ' ' +
+                start.horse.name +
+                ' - ' +
+                start.driver.firstName +
+                ' ' +
+                start.driver.lastName;
+              const trainerInformation =
+                start.horse.trainer.firstName +
+                ' ' +
+                start.horse.trainer.lastName;
+              const fatherInformation = start.horse.pedigree.father.name;
+              return (
+                <RaceInformation key={i}>
+                  <RaceHorse
+                    role="button"
+                    onClick={(e) => {
+                      openTab(race.id + '_' + i.toString());
+                    }}
+                  >
+                    {horseInformation}
+                  </RaceHorse>
+                  <Tab
+                    isActive={activeTab === race.id + '_' + i.toString()}
+                    role="contentinfo"
+                    id={race.id + '_' + i.toString()}
+                    onClick={(e) => {
+                      openTab(race.id + '_' + i.toString());
+                    }}
+                  >
+                    <p>Tränare: {trainerInformation}</p>
+                    <p>Far: {fatherInformation}</p>
+                  </Tab>
+                </RaceInformation>
+              );
+            })}
+          </RaceContainer>
+        );
+      })}
+    </Track>
   );
 };
 
